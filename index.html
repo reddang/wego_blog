@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Wego</title>
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<link rel="stylesheet" type="text/css" href="magnific.css" />
+</head>
+
+<body>
+	<div class="lazyLoading">
+		<div class="columns"></div>
+		<div class="columns"></div>
+		<div class="columns"></div>
+		<div class="columns"></div>
+		<div class="columns"></div>
+		<div class="columns"></div>
+	</div>
+	<div class="line">
+		<div class="columns"></div>
+		<div class="columns"></div>
+		<div class="columns"></div>
+		<div class="columns"></div>
+		<div class="columns"></div>
+		<div class="columns"></div>
+	</div>
+	<div id="nav">
+		<div class="navLarge">
+			<div id="logo"><a class="internalLink" href="index.html">
+				<img alt="logo" src="Asset/logow.png" width="139px" height="57px"/></a>
+			</div>
+			<div id="menu">
+				<a href="https://www.wego.com/flights" id="btFlights">Flights</a>
+				<a href="https://www.wego.com/hotels" id="btHotels">Hotels</a>
+				<a href="https://www.wego.com/mobile" id="btMobile">Mobile</a>
+			</div>
+		</div>
+	</div>
+	<div id="social">
+		<div>
+			<a href="https://www.facebook.com/wego" target="_blank" id="btFace">FACEBOOK</a>
+			<a href="https://twitter.com/wego" target="_blank" id="btTwit">TWITTER</a>
+			<a href="https://www.instagram.com/wego_travel/" target="_blank" id="btInta">INTAGRAM</a>
+		</div>
+	</div>
+	<section id="section1">
+		<div class="guideLine">
+			<div class="columns"></div>
+			<div class="columns"></div>
+			<div class="columns"></div>
+			<div class="columns"></div>
+			<div class="columns"></div>
+			<div class="columns"></div>
+		</div>
+		<div id="bg_img"></div>
+		<div class="highline">
+			<div class="headline">
+				<h1>Where to go in
+					<div class="custom-select">
+						<select>
+							<option value="jan">January</option>
+							<option value="feb">February</option>
+							<option value="mar">March</option>
+							<option value="apr">April</option>
+							<option value="may">May</option>
+							<option value="jun">June</option>
+							<option value="jul">July</option>
+							<option value="aug">August</option>
+							<option value="sep">September</option>
+							<option value="oct">October</option>
+							<option value="nov">November</option>
+							<option value="dec">December</option>
+						</select>	
+					</div>
+				</h1>
+			</div>
+			<div id="search">
+				<input type="text" name="search" placeholder="Search best place or destinations here..." maxlength="80">
+				<button type="submit">SEARCH</button>
+			</div>
+			<div class="description">
+				<p>Spring travels serves up locales full of flowers as well as beaches packed with revelry. Like winter and summer—largely because of school breaks—spring is a high-traffic travel time.</p>
+			</div>
+		</div>
+		<div class="btClick">
+			<hr><a class="internalLink">READ MORE</a>
+		</div>
+		<div id="videoContainer">
+			<video autoplay muted id="videoPlayer">
+  				<source src="" type="video/mp4">
+  				Your browser does not support the video tag.
+			</video>
+			<div id="videoControls">
+				<div id="progress">  
+            	     <div id="playProgress"></div> 
+        		</div> 
+			</div>
+			<div class="btNav">
+				<div class="preButton" onClick="preVideo()"><img src="Asset/arrow_white.svg"></div>
+				<div class="nextButton" onClick="nextVideo()"><img src="Asset/arrow_green.svg"></div>
+			</div>
+		</div>
+	</section>
+	<section id="section2">
+		<div id="catalogue">
+			<div class="highline">
+				<h1>Best exprience in the world</h1>
+			</div>
+			<div class="slider">
+				<div class="topic">
+					<div class="cover"></div>
+					<a class="internalLink" href="category.html"></a>
+					<img src="Asset/top_1.jpg">
+					<h3>Family Holidays</h3>
+					<div class="btClick">
+					<hr><p>READ MORE</p></div>
+				</div>
+				<div class="topic">
+					<div class="cover"></div>
+					<a class="internalLink" href="category.html"></a>
+					<img src="Asset/top_2.jpg">
+					<h3>Festivals</h3>
+					<div class="btClick">
+					<hr><p>READ MORE</p></div>
+				</div>
+				<div class="topic">
+					<div class="cover"></div>
+					<a class="internalLink" href="category.html"></a>
+					<img src="Asset/top_3.jpg">
+					<h3>Wildlife & Nature</h3>
+					<div class="btClick">
+					<hr><p>READ MORE</p></div>
+				</div>
+				<div class="topic">
+					<div class="cover"></div>
+					<a class="internalLink" href="category.html"></a>
+					<img src="Asset/top_4.jpg">
+					<h3>Road Trips</h3>
+					<div class="btClick">
+					<hr><p>READ MORE</p></div>
+				</div>
+				<div class="topic">
+					<div class="cover"></div>
+					<a class="internalLink" href="category.html"></a>
+					<img src="Asset/top_5.jpg">
+					<h3>City Tour</h3>
+					<div class="btClick">
+					<hr><p>READ MORE</p></div>
+				</div>
+				<div class="topic">
+					<div class="cover"></div>
+					<a class="internalLink" href="category.html"></a>
+					<img src="Asset/top_6.jpg">
+					<h3>History</h3>
+					<div class="btClick">
+					<hr><p>READ MORE</p></div>
+				</div>
+			</div>
+			<div class="btNav">
+				<div class="preButton" onClick="preTopic()"><img src="Asset/arrow_gray.svg"></div>
+				<div class="nextButton" onClick="nextTopic()"><img src="Asset/arrow_green.svg"></div>
+			</div>
+			<div class="bg_blur"></div>
+		</div>
+		<div id="gallery">
+			<div class="highline">
+				<h1>Maybe moment of your life will be on your next big adventure</h1>
+			</div>
+			<div class="description">
+				<p>Every time you step into the unknown, traveling somewhere on the globe, brings something that will deliver a life lesson. You are never completely the same when you come back…</p>
+			</div>
+			<div class="btClick">
+				<hr>
+				<a href="https://www.instagram.com/wego_travel/" target="_blank">FIND MORE</a>
+			</div>
+			<div id="instafeed" class="magnific">
+<!--			<div class="imgList"></div>-->	
+			</div>
+			<div class="btNav">
+				<div class="preButton" onClick="preInsta()"><img src="Asset/arrow_gray.svg"></div>
+				<div class="nextButton" onClick="nextInsta()"><img src="Asset/arrow_green.svg"></div>
+			</div>
+			<div class="bg_blur"></div>
+		</div>
+	<div class="guideLine">
+		<div class="columns"></div>
+		<div class="columns"></div>
+		<div class="columns"></div>
+		<div class="columns"></div>
+		<div class="columns"></div>
+		<div class="columns"></div>
+	</div>
+	</section>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+<script type="text/javascript" src="styles.js"></script>
+	
+</body>
+</html>
