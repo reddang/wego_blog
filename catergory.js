@@ -1,42 +1,14 @@
 /*lazyLoaing*/
 window.addEventListener("load", loading);
 function loading() {
-	var columns = document.getElementsByClassName('columns');
-	var lineCols = document.querySelectorAll('.line .columns');
-	for(var i=0; i<6; i++){
-		columns[i].style.width = '0';
-		lineCols[i].style.opacity = '0';
-	}
 	var hr = document.getElementsByTagName('hr');
 	hr[0].style.width = "75%";
-	document.getElementById('nav').style.zIndex = '102';
 }
 /*leave page*/
-var internalLinks = document.getElementsByClassName('internalLink');
-var externalLinks = document.querySelectorAll('a[href^="http"]');
-for (var i = 0; i < internalLinks.length; i++){
-	internalLinks[i].addEventListener("click", unloadIn, false);
-}
-for (var j = 0; j < externalLinks.length; j++){
-	externalLinks[j].addEventListener("click", unloadEx, false);
-}
 function unloadIn(e){
-	e.preventDefault();
-	var link = this.href;
-	var columns = document.getElementsByClassName('columns');
-	var lineCols = document.querySelectorAll('.line .columns');
-	for(var i=0; i<6; i++){
-		columns[i].style.width = '22.5%';
-		lineCols[i].style.opacity = '1';
-	}
-	document.getElementById('nav').style.zIndex = '100';
 	setTimeout(function(){
 		window.location.href = link;
 	}, 700);
-}
-function unloadEx(e){
-	e.preventDefault();
-	window.open(this.href);
 }
 /*nav*/
 document.addEventListener("scroll", scrollFunction);
@@ -97,5 +69,11 @@ function openTab(evt){
 	line.style.width = '75%';
 	$("#containerContent").load(" #containerContent > *");
 }
-
+/*masonry*/
+$('.grid').masonry({
+  itemSelector: '.grid-item',
+  columnWidth: '.grid-sizer',
+  gutter: '.gutter-sizer',
+  percentPosition: true
+});
 

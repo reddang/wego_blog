@@ -3,7 +3,8 @@ window.addEventListener("load", loading);
 function loading() {
 	var columns = document.getElementsByClassName('columns');
 	var lineCols = document.querySelectorAll('.line .columns');
-	for(var i=0; i < 6; i++){
+	var i;
+	for(i=0; i < 8; i++){
 		columns[i].style.width = '0';
 		lineCols[i].style.opacity = '0';
 	}
@@ -22,10 +23,19 @@ function unloadIn(e){
 	var link = this.href;
 	var columns = document.getElementsByClassName('columns');
 	var lineCols = document.querySelectorAll('.line .columns');
-	for(var i=0; i<6; i++){
-		columns[i].style.width = '22.5%';
-		lineCols[i].style.opacity = '1';
+	var i;
+	if(window.matchMedia('(min-width: 1920px)')){
+		for(i=0; i < 8; i++){
+			columns[i].style.width = '15%';
+			lineCols[i].style.opacity = '1';
+		}
 	}
+	if(window.matchMedia('(min-width: 1366px)')){
+	   	for(i=0; i < 6; i++){
+			columns[i].style.width = '22.5%';
+			lineCols[i].style.opacity = '1';
+		}
+	} 
 	setTimeout(function(){
 		window.location.href = link;
 	}, 700);
@@ -73,17 +83,27 @@ function preVideo(){
 var topic = document.querySelectorAll('.topic');
 var preTopicDisable = document.querySelectorAll('.preButton');
 var count = 0;
+var isInViewport = function (elem) {
+    var bounding = elem.getBoundingClientRect();
+    return (
+//        bounding.top >= 0 && bounding.left >= 0 &&
+        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+};
 function nextTopic(){
 	++count;
 	for (var i=0; i<topic.length; i++){
-		topic[i].style.left = count * (-338) + "px";
-		if(count >= (topic.length - 3)){
+		if (isInViewport(topic[topic.length-1])){
 			count = 0;
 			for (i=0; i<topic.length; i++){
-				topic[i].style.left = count * (-338) + "px";
-			}break;
+			topic[i].style.left = count * (-338) + "px";
+			}
+			break;
+		} else {
+			topic[i].style.left = count * (-338) + "px";
 		}
-	}	
+	}
 }
 function preTopic(){
 	--count;
@@ -106,26 +126,23 @@ function preTopic(){
 		resolution: 'standard_resolution',
 		sortBy: 'most-recent',
 		accessToken: '4044026246.1677ed0.8896752506ed4402a0519d23b8f50a17',
-		template: '<div class="imgList"><a href="{{image}}" title="{{caption}}" target="_blank"><img src="{{image}}"  alt="{{caption}}" /><div class="likes">&hearts; {{likes}}</div></a></div>'
+		after: function () {
+        	var images = $("#instafeed a").fancybox({
+				idleTime: false,
+				loop: true,
+				buttons: [
+					'close'
+				],
+				defaultType: "image",
+				animationEffect: "zoom",
+				mobile : {
+					clickSlide : "close"
+				}
+			});
+        },
+		template: '<div class="imgList"><a href="{{image}}" class="fancybox" data-fancybox="gallery" data-caption="{{caption}}" title="{{caption}}" target="_blank"><img src="{{image}}"  alt="{{caption}}" /><div class="likes">&hearts; {{likes}}</div></a></div>'
 	});
 	feed.run();
-	
-	$('.magnific').magnificPopup({
-  		type: 'image',
-		mainClass: 'mfp-with-zoom',
-		zoom: {
-			enable: true,
-			duration: 300,
-			easing: 'ease-in-out',
-			opener: function(openerElement) {
-				return openerElement.is('img') ? openerElement : openerElement.find('img');
-			}
-		},
-		delegate: 'a',
-  		gallery:{
-    	enabled:true
-  		}
-	});
 })();
 var imgList = document.getElementsByClassName('imgList');
 var temp, temp2;
@@ -306,7 +323,4 @@ function closeAllSelect(elmnt) {
 }
 /*if the user clicks anywhere outside the select box, then close all select boxes:*/
 document.addEventListener("click", closeAllSelect);
-
-
-
 
