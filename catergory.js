@@ -68,6 +68,16 @@ function openTab(evt){
 	line = evt.currentTarget.childNodes[0];
 	line.style.width = '75%';
 	$("#containerContent").load(" #containerContent > *");
+	
+	setTimeout(function(){
+		$('.grid').masonry({
+			itemSelector: '.grid-item',
+		  	columnWidth: '.grid-sizer',
+		  	gutter: '.gutter-sizer',
+		  	percentPosition: true
+		});
+		$('.grid').masonry('reloadItems');
+	} ,100); 
 }
 /*masonry*/
 $('.grid').masonry({

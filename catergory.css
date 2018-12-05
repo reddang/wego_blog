@@ -1,4 +1,4 @@
-/*destop 1366px*/
+/*destop 1224px*/
 @keyframes blur{
 	0%{
 		opacity: 0;
@@ -17,7 +17,7 @@
 		transform: translateY(0);
 	}
 }
-@media only screen and (min-width : 1366px) {
+@media only screen and (min-width : 1224px) {
 #logo img{
 	content: url(Asset/logob.png) !important;
 }
@@ -269,8 +269,8 @@
 	padding: 0;
 }
 }
-/*destop 1920px*/
-@media only screen and (min-width : 1920px) {
+/*destop 1824px*/
+@media only screen and (min-width : 1824px) {
 	#category a{
 		margin-bottom: .75em;
 	}
