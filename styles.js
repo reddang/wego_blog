@@ -1,3 +1,7 @@
+if((window.matchMedia('(min-width: 320px) and (max-width: 1023px)').matches) && (window.innerHeight < window.innerWidth)){
+	document.body.innerHTML = "Please view in Potrait!";
+}
+
 //nav-mobile
 $('#toggle').click(function() {
    $(this).toggleClass('active');
