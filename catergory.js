@@ -14,39 +14,48 @@ function unloadIn(e){
 document.addEventListener("scroll", scrollFunction);
 var nav = document.getElementsByClassName('navLarge')[0];
 var navId = document.getElementById('nav');
-function hasClass(nav, className) {
-  	if (nav.classList)
-    	return nav.classList.contains(className)
-  	else
-    	return !!nav.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'))
-}
 function scrollFunction(){	
 	var nodes = document.getElementById('menu').getElementsByTagName('a');
 	var i, cssMenu, cssSocial;
 	var style = document.createElement('style');
-	
-	if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-		if (nav.classList){
-			nav.classList.remove('navLarge');
-			nav.classList.add('navSmall');
+	var hamburger = document.getElementsByClassName('hamburger');
+	var a = document.body.scroll;
+	var b = document.documentElement.scrollTop;
+	if(window.matchMedia('(min-width: 320px) and (max-width: 1023px)').matches){
+		if (a < 10 || b < 10){
+			navId.style.background = "none";	
+			navId.style.boxShadow = "none";
+			navId.style.height = "10%";
+			for(i=0; i<hamburger.length; i++){
+				hamburger[i].style.background = "#444445";
+			}
+			document.getElementById('logo').getElementsByTagName('img')[0].src = "Asset/logob.png";
 		}
-		else if(hasClass(nav, 'navLarge')){
-			nav.className = nav.className.replace(/\navLarge\b/g, "navSmall");
-		}
-			navId.style.background = "rgba(255,255,255, 1)";
+		if (a > 10 || b > 10) {
+			navId.style.background = "#7CB342";
 			navId.style.boxShadow = "0px 2px 2px rgba(0, 0, 0, 0.1)";
-			navId.style.height = "8%";
-	}else {
-		if (nav.classList){
-			nav.classList.remove('navSmall');
-			nav.classList.add('navLarge');
+			navId.style.height = "10%";
+			for(i=0; i<hamburger.length; i++){
+				hamburger[i].style.background = "#fff";
+			}
+			document.getElementById('logo').getElementsByTagName('img')[0].src = "Asset/logow.png";
 		}
-		else if(hasClass(nav, 'navLarge')){
-			nav.className = nav.className.replace(/\navSmall\b/g, "navLarge");
-		}
+	}
+	if(window.matchMedia('(min-width: 1024px)').matches){
+		if (a < 10 || b < 10){
 			navId.style.background = "none";	
 			navId.style.boxShadow = "none";
 			navId.style.height = "20%";
+			nav.classList.remove('navSmall');
+			nav.classList.add('navLarge');
+		}
+		if (a > 10 || b > 10) {
+			navId.style.background = "#fff";
+			navId.style.boxShadow = "0px 2px 2px rgba(0, 0, 0, 0.1)";
+			navId.style.height = "8%";
+			nav.classList.remove('navLarge');
+			nav.classList.add('navSmall');
+		}
 	}
 }
 /*menuCatergory*/
